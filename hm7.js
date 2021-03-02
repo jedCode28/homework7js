@@ -87,7 +87,13 @@ console.log(filterTaco)      // This indeed returns an array of objects that cos
 // return a new array with a 'about' key where it is a combo of
 // name price and about
 
-newTaco
+const tacoButt = tacos.map((tacoA) => {
+const { name, price, about} = tacoA
+return([ name, price, about ])
+})
+taco.aboutKey = tacoButt
+console.log(taco.aboutKey)   // Returns an array, called by a new aboutKey, which holds the prescribed values.
+
                         
 
 
@@ -97,9 +103,30 @@ newTaco
 // can hard code data (Don't need to get it from the users)
 // READ (array of obj to array of html) 
 
+const arr2HTML = (tacoby) => {
+  const { name, price, about} = tacoby
+  return `
+    <>
+      <p>${name}: ${price}, ${about}</p>
+    </>
+    `
+}
+let theH = tacos.map(arr2HTML)
+console.log(theH)
+
+
+
 // Update (update a taco) 
 
+taco.name = "chicharones"
+console.log(taco)
+
+
+
 // Remove (delete a taco) 
+
+tacos.shift(taco1)
+console.log(tacos)
 
 // Create (add a taco) 
 
